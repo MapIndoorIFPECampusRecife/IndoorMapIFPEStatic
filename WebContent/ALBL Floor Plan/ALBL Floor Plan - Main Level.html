@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)http://library2.canisius.edu/mobileapp/map/index.html -->
+<html lang="en" class=" js svg inlinesvg"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>ALBL Floor Plan - Main Level</title>
+	<link rel="stylesheet" media="only screen and (max-width: 400px)" type="text/css" href="./ALBL Floor Plan - Main Level_files/mobile.css">
+	<link rel="stylesheet" media="only screen and (min-width: 401px)" type="text/css" href="./ALBL Floor Plan - Main Level_files/svg_floor_plan_style.css">
+	<link rel="shortcut icon" href="http://library2.canisius.edu/mobileapp/map/images/favicon.ico" type="image/ico">
+	
+	<meta name="viewport" content="width=320">
+
+	<!--[if IE]>
+		<link rel="stylesheet" type="text/css" href="ie_style.css" />
+	<![endif]-->
+
+	<script type="text/javascript" async="" src="./ALBL Floor Plan - Main Level_files/inpage_linkid.js" id="undefined"></script><script type="text/javascript" async="" src="./ALBL Floor Plan - Main Level_files/ga.js"></script><script type="text/javascript" src="./ALBL Floor Plan - Main Level_files/hours.js"></script>
+	<script type="text/javascript" src="./ALBL Floor Plan - Main Level_files/modernizr.custom.js"></script>
+	<script src="./ALBL Floor Plan - Main Level_files/jquery.min.js"></script>
+	<script src="./ALBL Floor Plan - Main Level_files/floor_plan.js"></script>
+	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+_gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-28765468-1']);
+  _gaq.push(["_setDomainName", ".canisius.edu"]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+	
+</head>
+<body>
+<div id="content_wrapper">
+
+<header id="head">
+	<div id="innerhead">
+		<a href="http://library.canisius.edu/"><img alt="Library Home" src="./ALBL Floor Plan - Main Level_files/ALBL_wide2_pt1.gif"></a>
+		<a href="http://www.canisius.edu/"><img alt="Canisius Home" src="./ALBL Floor Plan - Main Level_files/canisius_web_icon.png"></a>
+		
+		<div id="Floor_select">
+			<a href="http://library2.canisius.edu/mobileapp/map/lower_level.html">Lower Level</a><span class="floor_divider"> | </span>
+			<b>Main Level</b><span class="floor_divider"> | </span>
+			<a href="http://library2.canisius.edu/mobileapp/map/upper_level.html">Upper Level</a>
+		</div>
+	
+	</div>
+</header>
+
+<section id="right_header">
+	<div>
+		<script type="text/javascript" src="./ALBL Floor Plan - Main Level_files/jsapi"></script><script type="text/javascript">
+		<!--
+		/* Loads the Google data JavaScript client library */
+		google.load("gdata", "2.x");
+
+		function init() {
+		  // init the Google data JS client library with an error handler
+		  google.gdata.client.init(handleGDError);
+		  // load the code.google.com developer calendar
+		  loadDeveloperCalendar();
+		}
+
+		/**
+		 * Loads the Google Developers Event Calendar
+		 */
+		function loadDeveloperCalendar() {
+		  loadCalendarByAddress('1jpvofsk3f8o0fv8idbkb2opc0@group.calendar.google.com');
+		}
+
+		/**
+		 * Adds a leading zero to a single-digit number.  Used for displaying dates.
+		 */
+		function padNumber(num) {
+		  if (num <= 9) {
+			return "0" + num;
+		  }
+		  return num;
+		}
+
+		/**
+		 * Determines the full calendarUrl based upon the calendarAddress
+		 * argument and calls loadCalendar with the calendarUrl value.
+		 *
+		 * @param {string} calendarAddress is the email-style address for the calendar
+		 */ 
+		function loadCalendarByAddress(calendarAddress) {
+		  var calendarUrl = 'https://www.google.com/calendar/feeds/' +
+							calendarAddress + 
+							'/public/full';
+		  loadCalendar(calendarUrl);
+		}
+
+		/**
+		 * Uses Google data JS client library to retrieve a calendar feed from the specified
+		 * URL.  The feed is controlled by several query parameters and a callback 
+		 * function is called to process the feed results.
+		 *
+		 * @param {string} calendarUrl is the URL for a public calendar feed
+		 */  
+		function loadCalendar(calendarUrl) {
+		  var service = new 
+			  google.gdata.calendar.CalendarService('gdata-js-client-samples-simple');
+		  var query = new google.gdata.calendar.CalendarEventQuery(calendarUrl);
+		  query.setOrderBy('starttime');
+		  query.setSortOrder('ascending');
+		  query.setFutureEvents(true);
+		  query.setSingleEvents(true);
+		  query.setMaxResults(2);
+
+		  service.getEventsFeed(query, listEvents, handleGDError);
+		}
+
+		/**
+		 * Callback function for the Google data JS client library to call when an error
+		 * occurs during the retrieval of the feed.  Details available depend partly
+		 * on the web browser, but this shows a few basic examples. In the case of
+		 * a privileged environment using ClientLogin authentication, there may also
+		 * be an e.type attribute in some cases.
+		 *
+		 * @param {Error} e is an instance of an Error 
+		 */
+		function handleGDError(e) {
+		  document.getElementById('jsSourceFinal').setAttribute('style', 
+			  'display:none');
+		  if (e instanceof Error) {
+			/* alert with the error line number, file and message */
+			alert('Error at line ' + e.lineNumber +
+				  ' in ' + e.fileName + '\n' +
+				  'Message: ' + e.message);
+			/* if available, output HTTP error code and status text */
+			if (e.cause) {
+			  var status = e.cause.status;
+			  var statusText = e.cause.statusText;
+			  alert('Root cause: HTTP error ' + status + ' with status text of: ' + 
+					statusText);
+			}
+		  } else {
+			alert(e.toString());
+		  }
+		}
+
+		/**
+		 * Callback function for the Google data JS client library to call with a feed 
+		 * of events retrieved.
+		 *
+		 * Creates an unordered list of events in a human-readable form.  This list of
+		 * events is added into a div called 'events'.  The title for the calendar is
+		 * placed in a div called 'calendarTitle'
+		 *
+		 * @param {json} feedRoot is the root of the feed, containing all entries 
+		 */ 
+		function listEvents(feedRoot) {
+		  var entries = feedRoot.feed.getEntries();
+		  var eventDiv = document.getElementById('events');
+		  if (eventDiv.childNodes.length > 0) {
+			eventDiv.removeChild(eventDiv.childNodes[0]);
+		  }	  
+		  /* create a new unordered list */
+		  var table = document.createElement('table');
+		  /* set the calendarTitle div with the name of the calendar */
+		  document.getElementById('calendarTitle').innerHTML = 
+			feedRoot.feed.title.$t;
+		  /* loop through each event in the feed */
+		  var len = entries.length;
+		  for (var i = 0; i < len; i++) {
+			var entry = entries[i];
+			var title = entry.getTitle().getText();
+			var startDateTime = null;
+			var startJSDate = null;
+			var times = entry.getTimes();
+			if (times.length > 0) {
+			  startDateTime = times[0].getStartTime();
+			  startJSDate = startDateTime.getDate();
+			}
+			var entryLinkHref = null;
+			if (entry.getHtmlLink() != null) {
+			  entryLinkHref = entry.getHtmlLink().getHref();
+			}
+		/*addedByJeff 11/22*/
+			var day = startJSDate.getDay();
+			
+			var weekday=new Array(7);
+				weekday[0]="Sunday";
+				weekday[1]="Monday";
+				weekday[2]="Tuesday";
+				weekday[3]="Wednesday";
+				weekday[4]="Thursday";
+				weekday[5]="Friday";
+				weekday[6]="Saturday";
+
+			day = weekday[day];
+			
+		/*endAddedBy Jeff 11/22*/	
+			var dateString = day + ", " + (startJSDate.getMonth() + 1) + "/" + startJSDate.getDate();
+			if (!startDateTime.isDateOnly()) {
+			  dateString += " " + startJSDate.getHours() + ":" + 
+				  padNumber(startJSDate.getMinutes());
+			}
+			var tr = document.createElement('tr');
+			
+			var td = document.createElement('td');
+			var td2 = document.createElement('td');
+
+			if (i > 0){
+				td.appendChild(document.createTextNode("Tomorrow: "));}
+			else{
+				td.appendChild(document.createTextNode("Today's Hours: "));}
+			
+			
+			td2.appendChild(document.createTextNode(title));
+				
+			/* append the list item onto the unordered list */
+			table.appendChild(tr).appendChild(td);
+			tr.appendChild(td2);
+		  }
+		  eventDiv.appendChild(table);
+		}
+
+		google.setOnLoadCallback(init);
+		//-->
+		</script><script src="./ALBL Floor Plan - Main Level_files/saved_resource" type="text/javascript"></script><script src="./ALBL Floor Plan - Main Level_files/core,batch,mediarss,geo,opensearch,atom,threading,app,gdata,gbase,finance,blogger,contacts,analytics,acl,maps,calendar,sidewiki,default.I.js" type="text/javascript"></script>
+		<div id="calendarTitle"></div>
+		<div id="events"></div>
+		<script type="text/javascript">
+		loadCalendar('https://www.google.com/calendar/feeds/1jpvofsk3f8o0fv8idbkb2opc0@group.calendar.google.com/public/full');
+		</script>
+	</div>
+</section>
+
+<section id="map_section">
+	<svg id="svg_map" width="900" height="510" viewBox="0 0 900 510" xmlns="http://www.w3.org/2000/svg" version="1.1">
+		<g id="first_floor_outline" stroke="#000" stroke-width="1" fill="none">
+			<path d="M280, 310 L10, 310 L10, 10 L125, 10 L125, 25 L590, 25 L590, 10 L875, 10 
+			M875,10 S890,10 890,25 L890, 370 
+			M890, 370 S890,390 870,390 L870, 435 
+			M870, 435 S870,455 850,455 L610, 455 L610, 465 
+			M280, 310 S500,310 555, 490 
+			M555, 490 S610,520 610, 465"></path>
+			<path d="M870,390 L870,30 L840,30"></path>
+			<path d="M622,330 L622,360"></path>
+			<path d="M410,240 L295,240 L280,310"></path>
+		</g>
+		
+		<g id="text">
+			<text x="769" y="350">Curriculum</text>
+			<text x="784" y="370">Center</text>
+			<text x="635" y="427">Instruction</text>
+			<text x="650" y="444">Room</text>
+			<text x="633" y="317">ITS Help Desk</text>
+			<text x="95" y="203">125</text>
+			<text x="95" y="160">126</text>
+			<text x="95" y="121">127</text>
+			<text x="164" y="218">Study</text>
+			<text x="163" y="234">Room</text>
+			<text x="517" y="270" transform="rotate(90 530,270)">Reference/Circ</text>
+			<text x="622" y="42">134</text>
+			<text x="659" y="42">135</text>
+			
+			<text x="266" y="204">Library Learning Center</text>
+		</g>
+		
+		
+		
+		<g id="circoffices" class="utilroom">
+			<path d="M 410,338 L410,240 L515,240 L515,370 L494,391 S460,358 410,338"></path>
+		</g>
+		
+		<g id="stairwell" class="utilroom">
+			<path d="M555,490 S610,520 610,465 L610,380 L590,380 L532,438 S545,460 555,490"></path>
+		</g>
+		
+		<g id="elevator" class="utilroom">
+			<rect x="610" y="385" width="25" height="25"></rect>
+			<path d="M618,405 L618,390 L614,396 M618,390 L622,396"></path>
+			<path d="M627,390 L627,405 L623,399 M627,405 L631,399"></path>
+		</g>
+		
+		<g id="itshelpdesk" class="helpdesk active">
+			<rect x="622" y="290" width="125" height="40"></rect>
+		</g>
+		
+		<g id="circdesk" class="helpdesk active">
+			<rect x="515" y="250" width="40" height="120"></rect>
+		</g>
+		
+		<g id="classroom" class="room active">
+			<path d="M635,380 L747,380 L747,455 L610,455 L610,410 L635,410 L635,380"></path>
+		</g>
+		
+		<g id="itsoffices" class="utilroom">
+			<path d="M747,330 L655,330 L655,380 L747,380 L747 330"></path>
+		</g>
+		
+		<g id="curriccenter" class="location active">
+			<path d="M870, 435 S870,455 850,455 L747,455 L747,330 L747,280 L870,280 "></path>
+		</g>
+		
+		<g id="gallery" class="location active">
+			<polygon points="618,10 618,62 580,62 580,25 590,25 590,10"></polygon>
+		</g>
+		
+		<g id="BL134" class="room active">
+			<rect x="618" y="10" width="36" height="52"></rect>
+		</g>
+		
+		<g id="BL135" class="room active">
+			<rect x="654" y="10" width="36" height="52"></rect>
+		</g>
+		
+		<g id="womens1">
+			<rect style="fill:#AAAAAA; stroke:#000; stroke-width: 1;" x="690" y="10" width="40" height="62"></rect>
+			<g transform="translate(695,25) scale(.25, .25)">
+				<path d="M107.969,123.645c8.156,0,14.773-6.594,14.773-14.75V14.871c0-8.156-6.617-14.758-14.773-14.758H13.945
+					c-8.148,0-14.758,6.602-14.758,14.758v94.023c0,8.156,6.609,14.75,14.758,14.75H107.969z"></path>
+				<path style="fill:#FFFFFF;" d="M13.945,2.613c-6.758,0-12.25,5.5-12.25,12.258v94.023c0,6.766,5.492,12.258,12.25,12.258h94.023
+					c6.766,0,12.258-5.492,12.258-12.258V14.871c0-6.758-5.492-12.258-12.258-12.258H13.945z"></path>
+				<path d="M68.383,29.848c5.797,0,9.953,4.773,10.828,7.375l7.109,23.375c1.414,5.016-4.984,7.109-6.5,2.211l-6.398-21.445h-3.688
+					L80.461,79.48H70.25v29.758c0,5.078-7.648,5.055-7.648,0v-29.93h-3.867v29.859c0,5.148-7.664,5.148-7.664,0V79.48H40.828
+					l10.594-38.117h-3.5l-6.398,21.508c-1.516,4.672-7.984,2.773-6.492-2.273l7.094-23.375c0.75-2.664,4.133-7.375,9.969-7.375H68.383z"></path>
+				<path d="M60.68,28.09c4.547,0,8.273-3.711,8.273-8.273c0-4.594-3.727-8.305-8.273-8.305c-4.602,0-8.281,3.711-8.281,8.305
+					C52.398,24.379,56.078,28.09,60.68,28.09z"></path>
+			</g>
+		</g>
+		
+		<g id="mens1">
+			<rect style="fill:#AAAAAA; stroke:#000; stroke-width: 1;" x="730" y="10" width="40" height="62"></rect>
+			<g transform="translate(735,25) scale(.25, .25)">
+				<path d="M107.969,122.949c8.156,0,14.773-6.617,14.773-14.742V14.168c0-8.156-6.617-14.758-14.773-14.758H13.945
+					c-8.148,0-14.758,6.602-14.758,14.758v94.039c0,8.125,6.609,14.742,14.758,14.742H107.969z"></path>
+				<path style="fill:#FFFFFF;" d="M13.945,1.91c-6.758,0-12.25,5.5-12.25,12.258v94.039c0,6.734,5.492,12.227,12.25,12.227h94.023
+					c6.766,0,12.258-5.492,12.258-12.227V14.168c0-6.758-5.492-12.258-12.258-12.258H13.945z"></path>
+				<path d="M60.727,27.41c4.555,0,8.273-3.688,8.273-8.273c0-4.57-3.719-8.281-8.273-8.281c-4.57,0-8.281,3.711-8.281,8.281
+					C52.445,23.723,56.156,27.41,60.727,27.41z"></path>
+				<path d="M49.484,107.762c0,2.562,2.086,4.664,4.648,4.664s4.648-2.102,4.648-4.664V68.793h3.898v38.969
+					c0,2.562,2.062,4.664,4.625,4.664s4.648-2.102,4.648-4.664l0.039-67.18h3.859v24.766c0,4.992,6.484,4.992,6.461,0V40.035
+					c0-5.492-4.25-10.867-10.688-10.867l-21.992-0.039c-5.859,0-10.578,4.812-10.578,10.758v25.461c0,4.938,6.531,4.938,6.531,0V40.582
+					h3.93L49.484,107.762z"></path>
+			</g>
+		</g>
+		
+		<g id="utility1" class="utilroom">
+			<polygon points="770,10 845,10 845,52 810,52 810,72 770,72 770,10"></polygon>
+		</g>
+		
+		<g id="catoffices" class="utilroom">
+			<polygon points="10,10 125,10 125,100 80,100 80,215 155,215 155,240 205,240 205,310 10,310 10,10"></polygon>
+		</g>
+		
+		
+		<g id="dvd" class="location active">
+			<rect x="680" y="100" width="10" height="80"></rect>
+			<rect x="700" y="100" width="10" height="80"></rect>
+			<rect x="720" y="100" width="10" height="80"></rect>
+		</g>
+		
+		<rect id="popmags" x="760" y="100" width="10" height="80" class="location active"></rect>
+		
+		<g id="BL127" class="room active">
+			<rect x="80" y="100" width="55" height="30"></rect>
+		</g>
+		
+		<g id="ref" class="location active">
+			<rect x="600" y="150" width="25" height="25"></rect>
+		</g>
+		
+		<circle id="bests" class="location active" cx="605" cy="220" r="8"></circle>
+		
+		<g id="leisure" class="location active">
+			<circle cx="745" cy="104" r="8"></circle>
+			<circle cx="745" cy="128" r="8"></circle>
+			<circle cx="745" cy="152" r="8"></circle>
+			<circle cx="745" cy="176" r="8"></circle>
+		</g>
+		
+		<g id="newbooks" class="location active">
+			<rect x="600" y="100" width="25" height="25"></rect>
+		</g>
+		
+		<g id="BL126" class="room active">
+			<rect x="80" y="130" width="55" height="50"></rect>
+		</g>
+		
+		<g id="BL125" class="room active">
+			<rect x="80" y="180" width="55" height="35"></rect>
+		</g>
+		
+		<g id="glassroom" class="room active">
+			<rect x="155" y="200" width="60" height="40"></rect>
+		</g>
+		
+		<g id="learningcenter" class="room active">
+			<rect x="260" y="160" width="180" height="80"></rect>
+		</g>
+		
+		<text x="437" y="270">Course</text>
+			<text x="422" y="290">Reserves &amp;</text>
+			<text x="438" y="310">Offices</text>
+			<text x="305" y="280">Tim Horton's</text>
+			<text x="520" y="390">Enter/</text>
+			<text x="527" y="410">Exit</text>
+			<text x="690" y="240">Computers</text>
+			<text x="325" y="105">Open Seating</text>
+			<text x="555" y="445">Stairs</text>
+			<text x="662" y="363">ITS Offices</text>
+			<text x="60" y="250">Storage &amp;</text>
+			<text x="70" y="275">Offices</text>
+	</svg>
+</section>
+<section id="room_info" class="a"><img src="./ALBL Floor Plan - Main Level_files/curriccenter.JPG"><h4>Curriculum Materials Center</h4><p>Books, big books, toys, games, unit plans, movies, textbooks, lesson plans, activity books, kits and educational software packages that you can borrow and use to enrich and add interest to lesson plans and classes you will teach as a student teacher.</p><p><a href="http://libguides.canisius.edu/CMC?hs=a">Click here</a> for more information about what is available and how to use the Curriculum Center.</p></section>
+
+<footer><div id="foot"></div>
+	<a href="http://library.canisius.edu/">Andrew L. Bouwhuis Library</a> | <a href="http://www.canisius.edu/">Canisius College</a> | <a href="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=2001+Main+Street,+Buffalo,+NY&sll=42.92521,-78.853662&sspn=0.009035,0.013947&ie=UTF8&hq=&hnear=2001+Main+St,+Buffalo,+Erie,+New+York+14208&ll=42.925273,-78.853662&spn=0.009427,0.013947&z=16&iwloc=A">2001 Main Street Buffalo, NY 14208-1098</a> | Phone: 716-888-8412 | <a href="mailto:library@canisius.edu">library@canisius.edu</a>
+</footer>
+
+<script>
+		if (!Modernizr.svg) {
+		document.getElementById('map_section').innerHTML += '<img src="main_level.png"/>';
+		document.getElementById('svg_map').style.display = 'none';
+		document.getElementById('right_header').style.display = 'none';
+		document.getElementById('room_info').style.display = 'none';
+		document.getElementById('head').style.width = '910px';
+		}
+</script>
+
+</div><script src="./ALBL Floor Plan - Main Level_files/full"></script>
+
+<script src="./ALBL Floor Plan - Main Level_files/full(1)"></script></body></html>

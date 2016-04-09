@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script src="js/jquery-1.11.3.min.js"></script>
+<script  src="js/pathfinding/pathfinding-browser.min.js"></script>
+
+</head>
+<body>
+
+
+<script>
+
+var grid = new PF.Grid(3, 5); 
+
+grid.setWalkableAt(0, 2, false);
+grid.setWalkableAt(0, 3, false);
+grid.setWalkableAt(0, 4, false);
+grid.setWalkableAt(1, 2, false);
+grid.setWalkableAt(1, 3, false);
+grid.setWalkableAt(1, 4, false);
+
+/*
+var matrix = [
+    [0, 0, 0, 1, 0],
+    [1, 0, 0, 0, 1],
+    [0, 0, 1, 0, 0],
+];*/
+//var grid = new PF.Grid(matrix);
+var finder = new PF.AStarFinder();
+//grid.setWalkableAt(0, 3, false);
+alert(finder);
+console.log(finder);
+
+
+
+//var path = finder.findPath(1, 1, 3, 0, grid);
+var path = finder.findPath(0, 0, 2, 4, grid);
+console.log(path);
+alert(path);
+
+
+
+
+</script>
+
+
+</body>
+</html>

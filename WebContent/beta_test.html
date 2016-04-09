@@ -1,0 +1,24 @@
+<html>
+<head>
+</head>
+<body>
+<object id="svgObject2" data="svgfile.svg" type="image/svg+xml" height="100" width="100">
+Your browser doesn't support SVG
+</object>
+<!--<iframe src="svgfile.svg"  type="image/svg+xml" id="svgObject"></iframe>-->
+
+<script>
+
+var mySVG = document.getElementById("svgObject");
+ var svgDoc;
+ mySVG.addEventListener("load",function() {
+      svgDoc = mySVG.contentDocument;
+      alert("SVG contentDocument Loaded! ");
+ }, false);
+
+</script>
+</body>
+
+</html>
+
+China Post Registered Air Mail
